@@ -4,3 +4,9 @@
   - POST `api/beers`
   - PUT `api/beers/:id`
   - DELETE `api/beer/:id`
+
+- BEER MODEL
+  - Name => Draught Stout
+  - Brand => Guinness
+  - Style => Stout
+  - ABV(Alcohol by Volume) => 6.3%
