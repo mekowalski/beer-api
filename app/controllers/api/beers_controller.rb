@@ -1,4 +1,6 @@
 class Api::BeersController < ApplicationController
+  before_action :set_beer, only: [:show, :edit, :destroy]
+
   def index
     render json: Beer.all
   end
@@ -16,7 +18,15 @@ class Api::BeersController < ApplicationController
     render json: Beer.find_by(id: params[:id])
   end
 
+  def update
+    beer = Beer
+  end
+
   private
+    def set_beer
+      @beer = Beear.find_by(id: params[:id])
+    end
+
     def beer_params
       params.require(:beer).permit(:name, :brand, :style, :abv)
     end
