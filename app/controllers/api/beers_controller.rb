@@ -15,11 +15,23 @@ class Api::BeersController < ApplicationController
   end
 
   def show
-    render json: Beer.find_by(id: params[:id])
+    render json: @beer
   end
 
   def update
-    beer = Beer
+    if @beer.update(beer_params)
+      render json: @beer
+    else
+      render json: { message: beer.errors }, status: 400
+    end
+  end
+
+  def destroy
+    if @beer.destroy
+      render json: status: 200
+    else
+      render json: { message: 'Unable to Destroy this Beer' }, status: 400
+    end
   end
 
   private
