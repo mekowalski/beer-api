@@ -28,7 +28,7 @@ class Api::BeersController < ApplicationController
 
   def destroy
     if @beer.destroy
-      render json: status: 200
+      render status: 200
     else
       render json: { message: 'Unable to Destroy this Beer' }, status: 400
     end
@@ -36,7 +36,7 @@ class Api::BeersController < ApplicationController
 
   private
     def set_beer
-      @beer = Beear.find_by(id: params[:id])
+      @beer = Beer.find_by(id: params[:id])
     end
 
     def beer_params
