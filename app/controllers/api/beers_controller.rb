@@ -22,7 +22,7 @@ class Api::BeersController < ApplicationController
     if @beer.update(beer_params)
       render json: @beer
     else
-      render json: { message: beer.errors }, status: 400
+      render json: { message: @beer.errors }, status: 400
     end
   end
 
