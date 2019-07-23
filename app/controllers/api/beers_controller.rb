@@ -1,5 +1,7 @@
 class Api::BeersController < ApplicationController
   before_action :set_beer, only: [:show, :update, :destroy]
+  # show/update/destroy all have set_beer because i am looking for that specific beer in order to
+  #show/update/destroy that one
 
   def index
     render json: Beer.all
